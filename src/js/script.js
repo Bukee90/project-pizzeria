@@ -62,8 +62,9 @@
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderFrom();
+      thisProduct.processOrder();
 
-      
       console.log('new Product:', thisProduct);
     }
     renderInMenu() {
@@ -116,11 +117,11 @@
       const thisProduct = this;
       console.log('procesOrder:', thisProduct);
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData:', formData)
+      console.log('formData:', formData);
       let price = thisProduct.data.price;
       for (let paramId in thisProduct.data.params) {
         const param = thisProduct.data.params[paramId];
-        console.log(optionId, option);
+        console.log('param:', paramId, param);
         for (let optionId in param.options) {
           const option = param.options[optionId];
           console.log('option:', optionId, option);
@@ -143,7 +144,7 @@
     initMenu: function() {
       const thisApp = this;
       console.log('thisApp.data:', thisApp.data);
-      for (let productData in thisApp.data.products){
+      for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
       }
    
