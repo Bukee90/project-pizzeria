@@ -218,16 +218,15 @@
         params[paramId] = {
           label: param.label,
           options: {}
-        }
+        };
         for (let optionId in param.options) {
           const option = param.options[optionId];
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);   
-
-            if(optionSelected) {
-              params[paramId].options[optionId] = option.label;
-            }
+          if(optionSelected) {
+            params[paramId].options[optionId] = option.label;
           }
-        } 
+        }
+      } 
       return params;
     }
     
@@ -261,7 +260,7 @@
         if (newValue <= settings.amountWidget.defaultMax + 1) {
           if (newValue >= settings.amountWidget.defaultMin - 1) {
             thisWidget.value = newValue;
-            console.log('NewValue:', newValue);
+            // console.log('NewValue:', newValue);
           }
         }
       } 
@@ -317,7 +316,10 @@
       const generatedHTML = templates.cartProduct(menuProduct);
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       thisCart.dom.productList.appendChild(generatedDOM);
-      console.log('adding product', menuProduct);
+      // console.log('adding product', menuProduct);
+      thisCart.products.push(menuProduct);
+      console.log('thisCart.products', thisCart.products);
+
     }
   }
 
