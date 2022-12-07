@@ -227,7 +227,7 @@
           }
         }
       } 
-      return params;priceSingle
+      return params;
     }
     
   }
@@ -314,10 +314,10 @@
         event.preventDefault();
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
-        thisCart.dom.productList.addEventListener('updated', function(){
+      thisCart.dom.productList.addEventListener('updated', function(){
         thisCart.update();
       });
-        thisCart.dom.productList.addEventListener('remove', function(){
+      thisCart.dom.productList.addEventListener('remove', function(){
         thisCart.remove(event.detail.cartProduct);
       });
     }
